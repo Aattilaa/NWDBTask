@@ -7,7 +7,7 @@ const OrderSummaryBySupplier = () => {
   useEffect(() => {
     const fetchOrderSummary = async () => {
         try {
-            const response = await fetch('https://localhost:7120/api/northwind/products/totals-by-supplier');
+            const response = await fetch('https://localhost:7078/api/northwind/products/totals-by-supplier');
             const data = await response.json();
             setOrderSummary(data);
         } catch (error) {

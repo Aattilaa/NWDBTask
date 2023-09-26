@@ -8,7 +8,7 @@ function ProductList() {
 
   const fetchAllProducts = async () => {
     try {
-      const response = await fetch('https://localhost:7120/api/northwind/Products');
+      const response = await fetch('https://localhost:7078/api/northwind/Products');
       const data = await response.json();
       setProducts(data.value);
     } catch (error) {
