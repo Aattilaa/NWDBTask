@@ -10,7 +10,8 @@ function ProductList() {
     try {
       const response = await fetch('https://localhost:7078/api/northwind/Products');
       const data = await response.json();
-      setProducts(data.value);
+      console.log(data); 
+      setProducts(data);
     } catch (error) {
       setError(error);
     }
@@ -25,8 +26,8 @@ function ProductList() {
   }, []);
 
   const filteredProducts = products.filter(product =>
-    product.ProductName.toLowerCase().includes(searchQuery.toLowerCase()) &&
-    !product.Discontinued);
+    product.productName.toLowerCase().includes(searchQuery.toLowerCase()) &&
+    !product.discontinued);
 
   if (error) {
     return <div>Error fetching data: {error.message}</div>;
@@ -52,9 +53,9 @@ function ProductList() {
         </thead>
         <tbody>
           {filteredProducts.map(product => (
-            <tr key={product.ProductID}>
-              <td>{product.ProductName}</td>
-              <td>{product.UnitPrice}</td>
+            <tr key={product.productID}>
+              <td>{product.productName}</td>
+              <td>{product.unitPrice}</td>
             </tr>
           ))}
         </tbody>
